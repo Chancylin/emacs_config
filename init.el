@@ -31,6 +31,14 @@
 ;;active evil globally
 (evil-mode 1)
 ;;
+;;evil-search-highlight-persist
+;;(require 'highlight)
+;;(require 'evil-search-highlight-persist)
+(global-evil-search-highlight-persist t)
+;;using C-x SPC (default binding) to remove search
+;;To only display string whose length is greater than or equal to 3
+(setq evil-search-highlight-string-min-len 3)
+;;
 ;;change short-cut for hs-minor-mode
 (global-set-key (kbd "C-x c h") 'hs-hide-block)
 (global-set-key (kbd "C-x c H") 'hs-hide-all)
