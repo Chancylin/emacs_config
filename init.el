@@ -51,6 +51,25 @@
 ;;set indentation for fortran90
 (setq tab-with 2) ;set tab as two spaces; keep the coding style consistent
 ;;
+;;set the outline-magic: visibility cycling and structure editing
+;;using lambda function
+(add-hook 'outline-mode-hook 
+          (lambda () 
+            (require 'outline-cycle)))
+            
+(add-hook 'outline-minor-mode-hook 
+          (lambda () 
+            (require 'outline-magic)
+            (define-key outline-minor-mode-map  (kbd "<C-tab>") 'outline-cycle)))
+
+;;add this feature by default to python mode
+(add-hook 'python-mode-hook
+          (lambda ()
+            (outline-minor-mode)
+))
+
+
+;;
 ;;calling ctags to build tags
 ;(setq path-to-ctags ::/usr/nin/ctags) ;; <- your ctags path in the system here
 ;(defun create-tags (dir-name)
